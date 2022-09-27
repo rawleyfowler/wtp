@@ -1,0 +1,7 @@
+{
+  "name": "wtp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
