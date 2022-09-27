@@ -1,3 +1,4 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-router-outlet *ngIf="!loading"></ion-router-outlet>
+  <ion-spinner name="crescent" *ngIf="loading"></ion-spinner>
 </ion-app>

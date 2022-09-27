@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Who's that Pokemon?
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" *ngIf="!loading">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Who's that Pokemon?</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center ion-align-self-center">
+      <ion-card>
+        <ion-img [ngClass]="{ 'img-hidden': hidden }"[src]="getImage()"></ion-img>
+        <ion-card-content style="text-align: center">
+          <ion-title>Score {{ score }}</ion-title>
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
+
+  
+    <ion-row class="ion-justify-content-center ion-align-self-center">
+      <ion-card>
+        <ion-button 
+          *ngFor="let p of getNames()"
+          [id]="p"
+          (click)="handleResponse(p)">
+          {{ p }}
+        </ion-button>
+      </ion-card>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-content [fullscreen]=true *ngIf="loading">
+  <ion-grid>
+    <ion-row class="ion-justify-content-center ion-align-self-center">
+      <ion-spinner name="crescent" *ngIf="loading"></ion-spinner>
+    </ion-row>
+  </ion-grid>
+</ion-content>

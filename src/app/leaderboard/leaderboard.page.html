@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Leaderboard
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" *ngIf="!loading">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Leaderboard</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-grid>
+    <ion-row class="ion-justify-content-center ion-align-self-center">
+      <ion-card *ngIf="!players.length">
+        <ion-card-content>
+          <ion-title>No Players on the Leaderboard :(</ion-title>
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center ion-align-self-center">
+      <ion-card *ngIf="players.length">
+        <ion-card-title>Leaderboard</ion-card-title>
+        <ion-grid>
+          <ion-row *ngFor="let p of players">
+            <ion-col>{{ p.ip }}</ion-col>
+            <ion-col>{{ p.score }}</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
+<ion-content [fullscreen]="true" *ngIf="loading">
+  <ion-grid>
+    <ion-row class="ion-justify-content-center ion-align-self-center">
+      <ion-spinner name="crescent" *ngIf="loading"></ion-spinner>
+    </ion-row>
+  </ion-grid>
+</ion-content>
