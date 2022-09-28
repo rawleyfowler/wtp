@@ -1,0 +1,7 @@
+(executable
+ (name pokemon)
+ (libraries dream yojson core ppx_deriving_yojson.runtime)
+ (preprocess
+  (pps ppx_deriving_yojson lwt_ppx)))
+
+(data_only_dirs _esy esy.lock lib node_modules)
